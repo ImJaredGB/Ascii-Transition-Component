@@ -1,0 +1,16 @@
+<div
+  class="ascii"
+  [class.ascii--ready]="ready()"
+  [class.ascii--interactive]="trigger() !== 'none'"
+  (click)="onClick($event)"
+  (pointerenter)="onPointerEnter($event)"
+  (pointerleave)="onPointerLeave($event)"
+>
+  <canvas #canvas role="img" [attr.aria-label]="alt()"></canvas>
+
+  @if (ready()) {
+    <span class="ascii__hint" aria-hidden="true">
+      {{ isAscii() ? 'ASCII' : 'IMG' }}
+    </span>
+  }
+</div>
